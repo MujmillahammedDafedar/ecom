@@ -11,7 +11,7 @@ const Product = ({ product, onAddToCart }) => {
 
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={product.media.source} title={product.name} />
+      <CardMedia className={classes.media} image={product.media} title={product.name} />
       <CardContent>
         <div className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
@@ -21,7 +21,7 @@ const Product = ({ product, onAddToCart }) => {
             ${product.price.formatted}
           </Typography>
         </div>
-        <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+        <Typography dangerouslySetInnerHTML={{ __html: product.desc }} variant="body2" color="textSecondary" component="p" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
