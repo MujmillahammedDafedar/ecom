@@ -2,25 +2,23 @@ import React from 'react';
 import Product from './Product/Product';
 
 import Grid from '@material-ui/core/Grid';
-const products = [
-    {id:1, name:'Shoes', desc:'Runner' ,media:'https://internshala.com/cached_uploads/logo%2F5e2fde510b7041580195409.png', price:'$10'},
-    {id:2, name:'Watch', desc:'Runner',media:'https://internshala.com/cached_uploads/logo%2F5e2fde510b7041580195409.png', price:'$10'},
-    {id:3, name:'Band', desc:'Runner',media:'https://internshala.com/cached_uploads/logo%2F5e2fde510b7041580195409.png', price:'$10'},
-    {id:4, name:'Blazer', desc:'Runner',media:'https://internshala.com/cached_uploads/logo%2F5e2fde510b7041580195409.png', price:'$10'},
-]
+import useStyles from './styles';
 
 
-const Products = () => {
+const Products = ({products}) => {
+    const classes = useStyles();
    return (
-<main>
+<main className={classes.content}>
+    <div className= {classes.Toolbar}>
     <Grid container justify="center" spacing={4}>
-    {products.map((item) => (
-        <Grid item key={item.id} xs={12} md= {4} lg={3} >
-        <Product product={item} />
-        
+    {products.map((product) => (
+        <Grid item key={product.id} xs={12} md= {4} lg={3} >
+        <Product product={product} />
         </Grid>
-    ))}
+    ))};
     </Grid>
+    
+    </div>
     </main>
 
 
