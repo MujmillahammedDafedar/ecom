@@ -4,8 +4,10 @@ import { AddShoppingCart } from '@material-ui/icons';
 
 import useStyles from './styles';
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
+
+  const handleAddToCart = () => onAddToCart(product.id, 1);
 
   return (
     <Card className={classes.root}>
@@ -16,13 +18,13 @@ const Product = ({ product }) => {
             {product.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
-          {product.price.formatted_with_symbol}
+            ${product.price.formatted}
           </Typography>
         </div>
         <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart" >
+        <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>
@@ -31,3 +33,4 @@ const Product = ({ product }) => {
 };
 
 export default Product;
+
